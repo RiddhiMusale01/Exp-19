@@ -5,6 +5,7 @@ To study and implement Queue implementation using array.
 Visual Studio Code
 # Theory
 CODES:
+
 1.Using switch case
 ```
 #include <iostream>
@@ -72,7 +73,71 @@ o/p:
 
 2.Using classes
 ```
+#include <iostream>
+using namespace std;
+#define size 5
+#define ERROR -9999
 
+class Queue {
+    int rear, front, arr[size];
+public:
+    Queue() {
+        rear = -1;
+        front = -1;
+    }
+    void enqueue(int);
+    int dequeue();
+    void disp();
+};
+void Queue::enqueue(int num) {
+    if (rear == size - 1) {
+        cout << "Queue is full" << endl;
+    } else {
+        if (front == -1) {
+            front = 0;
+        }
+        arr[++rear] = num;
+    }
+}
+int Queue::dequeue() {
+    if (front == -1 || front > rear) {
+        cout << "Queue is empty" << endl;
+        return ERROR;
+    } else {
+        return arr[front++];
+    }
+}
+void Queue::disp() {
+    if (front == -1 || front > rear) {
+        cout << "Queue is empty" << endl;
+    } else {
+        cout << "Queue elements: ";
+        for (int i = front; i <= rear; i++) {
+            cout << arr[i] << " ";
+        }
+        cout << endl;
+    }
+}
+
+int main() {
+    Queue q1;
+    q1.enqueue(4);
+    q1.enqueue(8);
+    q1.enqueue(3);
+    q1.disp();
+    
+    int val = q1.dequeue();
+    cout << "Deleted element: " << val << endl;
+    
+    q1.disp();
+    
+    return 0;
+}
 ```
+o/p:
+
+![image](https://github.com/user-attachments/assets/f3d7ec73-ad66-4df0-bf09-64d77d54f5df)
+
 
 # Conclusion
+Both codes implement a queue, however in different ways. The class-based approach organizes queue operations into a Queue class, making the code reusable and simple to update. The global variable-based approach is simpler, but it requires global variables, which can make the code harder to maintain and less adaptable. While both work for queue operations, the class-based version is better suited for larger, more structured programs. The global approach is better suited to small, simple tasks.
