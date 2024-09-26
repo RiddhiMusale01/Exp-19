@@ -4,6 +4,16 @@ To study and implement Queue implementation using array.
 # Software Used
 Visual Studio Code
 # Theory
+A queue is a linear data structure that follows the FIFO (First In, First Out) principle. The element added first is removed first. In C++, queues can be implemented using arrays, linked lists, or STL (Standard Template Library). The most common operations are:
+
+Enqueue: Adds an element to the rear of the queue.
+
+Dequeue: Removes an element from the front of the queue.
+
+Front: Access the first element.
+
+Rear: Access the last element.
+
 CODES:
 
 1.Using switch case
